@@ -20,9 +20,9 @@ try:
 except ImportError:
     sklearn_present = False
 
-
-def __num_dist_rows__(array, ndigits=2):
-    return array.shape[0] - int((pd.DataFrame(array).sum(axis=1) < 0.999).sum())
+# MH added parameter to change threshold for the error messaged related to "* Not all rows (distributions) in doc_topic_dists sum to 1." 
+def __num_dist_rows__(array, ndigits=2, theshold):
+    return array.shape[0] - int((pd.DataFrame(array).sum(axis=1) < threshold).sum())
 
 
 class ValidationError(ValueError):
